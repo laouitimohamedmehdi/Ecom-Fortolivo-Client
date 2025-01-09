@@ -1,0 +1,22 @@
+<div>
+
+    <ngx-spinner bdColor = "rgb(49,47,49)" size = "medium" color = "#fef100" type = "square-jelly-box" [fullScreen] = "false"><p style="color: white" > Loading... </p></ngx-spinner>
+
+    <!-- header -->
+    <app-nav-bar></app-nav-bar>
+    <!-- body -->
+    <app-section-header></app-section-header>
+
+    <!-- <div class="horizontal-container" style="display: flex; align-items: center; gap: 10px;">
+        <img src="/assets/images/Olive_reel.png" style="height: 1000px;" alt="icon">
+        <div style="flex-grow: 1; text-align: center;">
+            <router-outlet></router-outlet>
+        </div>       
+        <img src="/assets/images/Olive_reel.png" style="height: 1000px; transform: scaleX(-1);" alt="icon">
+    </div> -->
+
+    <!-- <app-shop></app-shop> -->
+
+    <!-- footer -->
+    <router-outlet></router-outlet>
+</div>

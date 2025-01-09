@@ -1,0 +1,35 @@
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color: #312f31;"> <!-- HEX:#fef100 -->
+    <div class="mb-2" style="padding-left: 30px;">
+        <a routerLink="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+            <img src="/assets/images/Logo.png" style="max-height: 70px;" alt="icon">
+        </a>
+    </div>
+    <div>
+        <img src="/assets/images/Olive.png" style="transform: rotate(170deg); max-height: 100px;" alt="icon">
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2">
+        <li><a class="nav-link fs-5 px-2" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">HOME</a></li>
+        <li><a class="nav-link fs-5 px-2" routerLink="/shop" routerLinkActive="active">SHOP</a></li>
+        <li><a class="nav-link fs-5 px-2" routerLink="/contact" routerLinkActive="active">CONTACT</a></li>
+        <li><a class="nav-link fs-5 px-2" routerLink="/test-error" routerLinkActive="active">ERROR</a></li>
+        <li><a class="nav-link fs-5 px-2">FAQs</a></li>
+        <li><a class="nav-link fs-5 px-2">ABOUT</a></li>
+    </ul>
+
+    <div>
+        <img src="/assets/images/Olive.png" style="transform: rotate(190deg) scaleX(-1); max-height: 100px;" alt="icon">
+    </div>
+
+    <div class="d-flex flex-wrap align-items-center" style="padding-right: 30px;">
+        <a class="position-relative">
+            <i class="fa fa-shopping-cart fa-2x" style="margin-right: 30px; color: white;"></i>
+            <div class="card-number">3</div>
+        </a>
+        <!-- <a class="btn btn-outline-dark me-2">Login</a>
+        <a class="btn btn-dark">Sign-up</a> -->
+
+        <a class="btn btn-outline-light me-2" style="color: #fef100;">Login</a>
+        <a class="btn btn-light" style="background-color: #fef100;">Sign-up</a>
+    </div>
+</div>
