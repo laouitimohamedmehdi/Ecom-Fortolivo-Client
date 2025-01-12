@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
@@ -12,16 +12,13 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   templateUrl: './pager.component.html',
   styleUrl: './pager.component.scss'
 })
-export class PagerComponent implements OnInit {
+export class PagerComponent {
 
   @Input() pageSize: number;
   @Input() totalCount: number;
   @Output() pageChanged = new EventEmitter<number>();
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
   OnPageChanged(event: any){
     this.pageChanged.emit(event);

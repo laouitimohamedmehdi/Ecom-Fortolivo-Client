@@ -79,7 +79,8 @@
               "buildTarget": "Client:build:production"
             },
             "development": {
-              "buildTarget": "Client:build:development"
+              "buildTarget": "Client:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
