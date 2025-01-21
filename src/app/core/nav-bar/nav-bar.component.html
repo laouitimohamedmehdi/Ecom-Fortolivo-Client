@@ -1,4 +1,5 @@
-<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom" style="background-color: #312f31;"> <!-- HEX:#fef100 -->
+<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+    style="background-color: #312f31;"> <!-- HEX:#fef100 -->
     <div class="mb-2" style="padding-left: 30px;">
         <a routerLink="/" class="d-inline-flex link-body-emphasis text-decoration-none">
             <img src="/assets/images/Logo.png" style="max-height: 70px;" alt="icon">
@@ -9,7 +10,8 @@
     </div>
 
     <ul class="nav col-12 col-md-auto mb-2">
-        <li><a class="nav-link fs-5 px-2" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">HOME</a></li>
+        <li><a class="nav-link fs-5 px-2" routerLink="/" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact:true}">HOME</a></li>
         <li><a class="nav-link fs-5 px-2" routerLink="/shop" routerLinkActive="active">SHOP</a></li>
         <li><a class="nav-link fs-5 px-2" routerLink="/contact" routerLinkActive="active">CONTACT</a></li>
         <li><a class="nav-link fs-5 px-2" routerLink="/test-error" routerLinkActive="active">ERROR</a></li>
@@ -26,7 +28,29 @@
             <i class="fa fa-shopping-cart fa-2x" style="margin-right: 30px; color: white;"></i>
             <div class="card-number" *ngIf="(basket$ | async) as basket">{{basket.basketItems.length}}</div>
         </a>
-        <a class="btn btn-outline-light me-2" style="color: #fef100;">Login</a>
-        <a class="btn btn-light" style="background-color: #fef100;">Sign-up</a>
+        <div *ngIf="(currentUser$ | async) == null">
+            <a routerLink="/account/login" class="btn btn-outline-light me-2" style="color: #fef100;">Login</a>
+            <a routerLink="/account/register" class="btn btn-light" style="background-color: #fef100;">Sign-up</a>
+        </div>
+
+        <div *ngIf="(currentUser$ | async)">
+
+            <div class="btn-group ml-3 mr-5" dropdown>
+                <a dropdownToggle class="dropdown-toggle" style="text-decoration: none;cursor: pointer;">
+                    <span style="font-weight: bold;">
+                        Welcome , {{(currentUser$ | async).displayName}}
+                    </span>
+                </a>
+                <div *dropdownMenu class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="/basket">
+                        <i class="fa fa-shopping-cart mx-1"></i>Basket</a>
+                    <a class="dropdown-item" routerLink="/orders">
+                        <i class="fa fa-history mx-1"></i> Orders</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a (click)="logout()" class="dropdown-item" style="cursor: pointer;">
+                        <i class="fa fa-sign-out mx-1"></i>Logout</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
