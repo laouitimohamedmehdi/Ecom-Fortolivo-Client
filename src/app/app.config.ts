@@ -7,12 +7,13 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes), 
     provideClientHydration(), 
-    provideHttpClient(withFetch(), withInterceptors([errorInterceptor, loadingInterceptor])),
+    provideHttpClient(withFetch(), withInterceptors([errorInterceptor, loadingInterceptor, jwtInterceptor])),
     importProvidersFrom(
       BrowserAnimationsModule,
       ToastrModule.forRoot({

@@ -1,0 +1,26 @@
+button.nav-link {
+    border-radius: 0;
+    border: none;
+    color: #212529;
+    font-weight: bold;
+
+    &.active {
+        background-color: #312f31;
+        color: #fef100;
+    }
+
+    // &:focus {
+    //     background-color: green;
+    // }
+
+    // &:active {
+    //     outline: none;
+    //     background-color: pink;
+    // }
+
+    // &:disabled:not(.active) {
+    //     color: #333;
+    //     font-weight: bold;
+    //     background-color: black;
+    // }
+}

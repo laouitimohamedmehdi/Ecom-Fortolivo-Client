@@ -5,11 +5,12 @@ import { IBasket, IBasketItem } from '../shared/Models/Basket';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { OrderTotalsComponent } from "../shared/Components/order-totals/order-totals.component";
+import { BasketSummeryComponent } from "../shared/Components/basket-summery/basket-summery.component";
 
 @Component({
   selector: 'app-basket',
   standalone: true,
-  imports: [CommonModule, RouterModule, OrderTotalsComponent],
+  imports: [CommonModule, RouterModule, OrderTotalsComponent, BasketSummeryComponent],
   templateUrl: './basket.component.html',
   styleUrl: './basket.component.scss'
 })

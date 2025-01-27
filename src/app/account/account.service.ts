@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { IUser } from '../shared/Models/User';
-import { BehaviorSubject, map, of, ReplaySubject } from 'rxjs';
-import { Route, Router } from '@angular/router';
+import { map, of, ReplaySubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { IAddress } from '../shared/Models/Address';
 
 @Injectable({
   providedIn: 'root'
@@ -21,20 +22,20 @@ export class AccountService {
   // }
 
   loadCurrentUser(token: string) {
-    if(token === null){
+    if (token === null) {
       this.currentUser.next(null);
       return of(null)
     }
     let headers = new HttpHeaders();
-    headers = headers.set('Authorization',`Bearer ${token}`);
+    headers = headers.set('Authorization', `Bearer ${token}`);
 
-    return this.http.get(this.baseURl+'Account/Get-Current-User', {headers})
-    .pipe(map((user:IUser)=>{
-      if(user){
-        localStorage.setItem('token', user.token);
-        this.currentUser.next(user);
-      }
-    }))
+    return this.http.get(this.baseURl + 'Account/Get-Current-User', { headers })
+      .pipe(map((user: IUser) => {
+        if (user) {
+          localStorage.setItem('token', user.token);
+          this.currentUser.next(user);
+        }
+      }))
   }
 
   login(value: any) {
@@ -69,5 +70,13 @@ export class AccountService {
 
   checkEmailExist(email: string) {
     return this.http.get(this.baseURl + 'Account/Check-Email-Exist?email=' + email);
+  }
+
+  getUserAddress() {
+    return this.http.get(this.baseURl + 'Account/Get-User-Address');
+  }
+
+  updateUserAddress(address: IAddress) {
+    return this.http.put<IAddress>(this.baseURl + 'Account/Update-User-Address', address)
   }
 }

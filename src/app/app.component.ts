@@ -9,6 +9,7 @@ import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 import { BasketService } from './basket/basket.service';
 import { isPlatformBrowser } from '@angular/common';
 import { AccountService } from './account/account.service';
+import { jwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 
 @Component({
@@ -29,6 +30,11 @@ import { AccountService } from './account/account.service';
     {
       provide: HTTP_INTERCEPTORS,
       useFactory: () => loadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useFactory: () => jwtInterceptor,
       multi: true,
     },
   ],

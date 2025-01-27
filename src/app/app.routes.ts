@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
-import { ShopComponent } from './shop/shop.component';
-import { ProductDetailsComponent } from './shop/product-details/product-details.component';
 import { HomeComponent } from './home/home.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
-import { skip } from 'rxjs';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
@@ -19,5 +16,6 @@ export const routes: Routes = [
     { path: 'basket', loadChildren: () => import('./basket/basket.module').then(mo => mo.BasketModule), data: { breadcrumb: 'Basket' } },
     { path: 'checkout', canActivate:[authGuard], loadChildren: () => import('./checkout/checkout.module').then(mo => mo.CheckoutModule), data: { breadcrumb: 'Checkout' } },
     { path: 'account', loadChildren: () => import('./account/account.module').then(mo => mo.AccountModule), data: { breadcrumb: {skip:true} } },
+    { path: 'orders', canActivate:[authGuard], loadChildren: () => import('./orders/orders.module').then(mo => mo.OrdersModule), data: { breadcrumb: 'Orders' } },
     { path: '**', redirectTo: 'not-found', pathMatch: 'full' }
 ];
